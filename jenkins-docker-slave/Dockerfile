@@ -10,4 +10,5 @@ RUN apt-get install openssh-server
 RUN mkdir /var/run/sshd
 RUN apt-get install openjdk-6-jdk
 RUN echo "jenkins:jenkins" | chpasswd
+RUN apt-get clean
 RUN echo 'debconf debconf/frontend select Dialog' | debconf-set-selections
