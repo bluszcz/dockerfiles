@@ -6,7 +6,7 @@ RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get clean
 RUN useradd -ms /bin/bash jenkins
-RUN apt-get install openssh-server
+RUN apt-get install openssh-server -y
 RUN mkdir /var/run/sshd
 RUN apt-get install openjdk-6-jdk
 RUN echo "jenkins:jenkins" | chpasswd
