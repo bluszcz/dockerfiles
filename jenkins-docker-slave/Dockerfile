@@ -8,7 +8,7 @@ RUN apt-get clean
 RUN useradd -ms /bin/bash jenkins
 RUN apt-get install openssh-server -y
 RUN mkdir /var/run/sshd
-RUN apt-get install openjdk-6-jdk -y
+RUN apt-get install libsfml-dev openjdk-6-jdk build-essential qt5-qmake -y
 RUN echo "jenkins:jenkins" | chpasswd
 RUN apt-get clean
 RUN echo 'debconf debconf/frontend select Dialog' | debconf-set-selections
