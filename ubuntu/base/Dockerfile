@@ -1,5 +1,5 @@
 # Ubuntu Trusty Dockerfile 
-FROM ubuntu:14.04
+FROM ubuntu:14.04.3
 MAINTAINER Rafał bluszcz Zawadzki <bluszcz@bluszcz.net>
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 RUN apt-get update
