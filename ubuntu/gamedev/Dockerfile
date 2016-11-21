@@ -5,8 +5,16 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 
 RUN apt-get update \ 
     && apt-get upgrade -y \ 
-    && apt-get install -y -qq libsfml-dev build-essential games-c++-dev libcsfml-dev
+    && apt-get install -y -qq libsfml-dev build-essential games-c++-dev libcsfml-dev git \
+    && apt-get install -y -qq libsfml-dev build-essential games-c++-dev libcsfml-dev git \
 RUN apt-get clean
+
+RUN mkdir /opt/
+RUN cd /opt
+RUN git clone https://github.com/mxe/mxe.git
+RUN cd /opt/mxe
+RUN make sfml
+
 
 
 
