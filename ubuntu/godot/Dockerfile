@@ -44,6 +44,21 @@ RUN cd /opt/
 RUN wget https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
 RUN tar -zxvf android-sdk_r24.4.1-linux.tgz
 RUN echo y |android-sdk-linux/tools/android update sdk -u -a -t 1,31 -s
+RUN apt-get install -y scons
+
+RUN mkdir /opt/godot-src/
+RUN apt-get install -y gcc-mingw-w64-i686 mingw32 build-essential scons pkg-config libx11-dev libxcursor-dev libxinerama-dev \
+    libgl1-mesa-dev libglu-dev libasound2-dev libpulse-dev libfreetype6-dev libssl-dev libudev-dev \
+    libxrandr-dev
+RUN cd /opt/godot-src \
+    && wget https://github.com/godotengine/godot/archive/2.1.1-stable.tar.gz \
+    && tar -zxvf 2.1.1-stable.tar.gz \
+    && cd godot-2.1.1-stable \
+    && pwd \
+    && ls \ 
+    && scons platform=server
+
+
 
 RUN echo 'debconf debconf/frontend select Dialog' | debconf-set-selections
 
