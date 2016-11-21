@@ -58,7 +58,13 @@ RUN cd /opt/godot-src \
     && ls \ 
     && scons platform=server
 
-
+RUN cd /opt/godot-src/godot-2.1.1-stable  \
+    && ls -lah \
+    && ls -lah bin \
+    && find |grep godot -i
+RUN rm -rf /bin/godot
+RUN cp /opt/godot-src/godot-2.1.1-stable/bin/godot_server.server.tools.64  /bin/godot
+RUN apt-get clean
 
 RUN echo 'debconf debconf/frontend select Dialog' | debconf-set-selections
 
