@@ -40,6 +40,10 @@ RUN apt-add-repository ppa:webupd8team/java -y
 RUN apt-get update
 RUN echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections
 RUN apt-get install oracle-java8-installer -y
+RUN cd /opt/
+RUN wget https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
+RUN tar -zxvf android-sdk_r24.4.1-linux.tgz
+RUN echo y |android-sdk-linux/tools/android update sdk -u -a -t 1,31 -s
 
 RUN echo 'debconf debconf/frontend select Dialog' | debconf-set-selections
 
