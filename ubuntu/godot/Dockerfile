@@ -35,5 +35,11 @@ RUN apt-get clean
 RUN mkdir ~/.vnc/
 RUN x11vnc -storepasswd 1234 ~/.vnc/passwd-y
 
+RUN apt-get install -y software-properties-common
+RUN apt-add-repository ppa:webupd8team/java -y
+RUN apt-get update
+RUN echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections
+RUN apt-get install oracle-java8-installer -y
+
 RUN echo 'debconf debconf/frontend select Dialog' | debconf-set-selections
 
