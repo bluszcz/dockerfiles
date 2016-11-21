@@ -5,7 +5,8 @@ RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selectio
 
 RUN apt-get update \ 
     && apt-get upgrade -y \ 
-    && apt-get install -y -qq libsfml-dev build-essential games-c++-dev
+    && apt-get install -y -qq libsfml-dev build-essential games-c++-dev libcsfml-dev
+RUN apt-get clean
 
 
 
