@@ -28,5 +28,10 @@ RUN cd /opt \
     && mv templates ~/.godot/ 
 
 RUN ln -s /opt/Godot_v2.1-stable_x11.64 /bin/godot
+RUN apt-get install -y xvfb x11vnc libegl1-mesa-drivers libegl1-mesa -y
+RUN apt-get clean 
+RUN mkdir ~/.vnc/
+RUN x11vnc -storepasswd 1234 ~/.vnc/passwd-y
+
 RUN echo 'debconf debconf/frontend select Dialog' | debconf-set-selections
 
