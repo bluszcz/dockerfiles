@@ -27,5 +27,6 @@ RUN cd /opt \
     && mkdir ~/.godot/ \
     && mv templates ~/.godot/ 
 
+RUN ln -s /opt/Godot_v2.1-stable_x11.64 /bin/godot
 RUN echo 'debconf debconf/frontend select Dialog' | debconf-set-selections
-CMD /opt/Godot_v2.1-stable_x11.64 --help
+
