@@ -55,7 +55,11 @@ RUN cd /opt/godot-src \
 
 RUN cp /opt/godot-src/godot-2.1.1-stable/bin/godot_server.server.tools.64  /bin/godot
 RUN rm -rf /opt/*tgz 
+RUN rm -rf /opt/*zip
+RUN rm -rf /opt/godot-src/*tar.gz
+RUN cp /opt/Godot_v2.1.1-stable_x11.64 /bin/godot.bin
 RUN apt-get clean
+
 
 RUN echo 'debconf debconf/frontend select Dialog' | debconf-set-selections
 
