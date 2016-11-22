@@ -37,7 +37,7 @@ RUN echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true
 RUN apt-get install oracle-java8-installer -y
 
 RUN cd /opt/ \
-    && https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz \
+    && wget https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz \
     && tar -zxvf android-sdk_r24.4.1-linux.tgz \
     && echo y |android-sdk-linux/tools/android update sdk -u -a -t 1,31 -s
 
