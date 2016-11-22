@@ -39,9 +39,10 @@ RUN cd /opt/ \
     && tar -zxvf android-sdk_r24.4.1-linux.tgz \
     && echo y |android-sdk-linux/tools/android update sdk -u -a -t 1,31 -s
 
-RUN apt-get install -y gcc-mingw-w64-i686 mingw32 build-essential scons pkg-config libx11-dev libxcursor-dev libxinerama-dev \
+RUN apt-get install -y gcc-mingw-w64-i686 mingw-w64 mingw-w64-x86-64-dev mingw-w64-i686-dev g++-mingw-w64-i686 g++-mingw-w64-x86-64  build-essential scons pkg-config libx11-dev libxcursor-dev libxinerama-dev \
     libgl1-mesa-dev libglu-dev libasound2-dev libpulse-dev libfreetype6-dev libssl-dev libudev-dev \
     libxrandr-dev
+
 
 RUN mkdir /opt/godot-src/
 RUN cd /opt/godot-src \
