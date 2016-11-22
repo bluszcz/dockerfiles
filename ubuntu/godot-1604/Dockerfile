@@ -4,7 +4,7 @@ MAINTAINER Rafał bluszcz Zawadzki <bluszcz@bluszcz.net>
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 RUN apt-get update \ 
     && apt-get upgrade -y \ 
-    && apt-get install -y -qq wget unzip software-properties-common libx11-6 \
+    && apt-get install -y -qq wget unzip software-properties-common libx11-6 sudo \
     && mkdir -p /opt/
 RUN cd /opt \
     && wget https://downloads.tuxfamily.org/godotengine/2.1.1/Godot_v2.1.1-stable_x11.64.zip \
