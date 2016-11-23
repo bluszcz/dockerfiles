@@ -1,12 +1,12 @@
 # Godot CI Dockerfile
-FROM bluszcz/godot
+FROM bluszcz/godot-1604
 MAINTAINER Rafał bluszcz Zawadzki <bluszcz@bluszcz.net>
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
 RUN apt-get update \ 
     && apt-get upgrade -y \ 
-    && apt-get install -y -qq libsfml-dev build-essential games-c++-dev libcsfml-dev git \
-    && apt-get install -y -qq libsfml-dev build-essential games-c++-dev libcsfml-dev git \
+    && apt-get install -y -qq libsfml-dev build-essential games-c++-dev libcsfml-dev git 
+    
 RUN apt-get clean
 
 RUN mkdir /opt/
