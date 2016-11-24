@@ -1,5 +1,5 @@
 # Godot CI Dockerfile
-FROM bluszcz/godot-1604
+FROM bluszcz/godot-16.04
 MAINTAINER Rafał bluszcz Zawadzki <bluszcz@bluszcz.net>
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 
