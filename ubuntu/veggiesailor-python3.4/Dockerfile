@@ -12,7 +12,7 @@ RUN apt-get install python3.4-dev \
 	libpq-dev \
 	libgdal1-dev \
 	libgdal-dev
-RUN pip install virtualenv
+RUN pip3 install virtualenv
 RUN apt-get build-dep pillow -y
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8  
