@@ -33,4 +33,8 @@ USER root
 RUN apt-get clean
 RUN echo 'debconf debconf/frontend select Dialog' | debconf-set-selections
 EXPOSE 8000
-CMD sudo -u djangocms /home/djangocms/djangocms/bin/python /home/djangocms/djangocms/manage.py runserver 0:8000
+USER djangocms
+WORKDIR /home/djangocms/djangocms
+CMD bin/python manage.py runserver 0:8000
+#CMD sudo -u djangocms /home/djangocms/djangocms/bin/python /home/djangocms/djangocms/manage.py runserver 0:8000
+#CMD sudo -u djangocms /home/djangocms/djangocms/bin/python /home/djangocms/djangocms/manage.py runserver 0:8000
