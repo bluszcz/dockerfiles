@@ -28,6 +28,7 @@ ENV DOCKER_BUCKET="download.docker.com" \
 RUN set -ex \
     && echo 'Acquire::CompressionTypes::Order:: "gz";' > /etc/apt/apt.conf.d/99use-gzip-compression \
     && apt-get update \
+    && apt-get install -y jq \
     && apt-get install -y --no-install-recommends \
         wget=1.15-* fakeroot=1.20-* ca-certificates \
     && apt-get -qy build-dep git=1:1.9.1 \
