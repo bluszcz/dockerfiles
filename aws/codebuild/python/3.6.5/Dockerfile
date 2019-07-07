@@ -51,8 +51,8 @@ RUN set -ex \
         libdb-dev=1:5.3.21~* libevent-dev=2.0.21-stable-* libffi-dev=3.1~rc1+r3.0.13-* \
         libgeoip-dev=1.6.0-* libglib2.0-dev=2.40.2-* libjpeg-dev=8c-* \
         libkrb5-dev=1.12+dfsg-* liblzma-dev=5.1.1alpha+20120614-* libmagickcore-dev=8:6.7.7.10-* \
-        libmagickwand-dev=8:6.7.7.10-* libmysqlclient-dev=5.5.60-* libncurses5-dev=5.9+20140118-* \
-        libpng12-dev=1.2.50-* libpq-dev=9.3.22-* libreadline-dev=6.3-* libsqlite3-dev=3.8.2-* \
+        libmagickwand-dev=8:6.7.7.10-* libmysqlclient-dev libncurses5-dev=5.9+20140118-* \
+        libpng12-dev=1.2.50-* libpq-dev libreadline-dev=6.3-* libsqlite3-dev=3.8.2-* \
         libssl-dev=1.0.1f-* libtool=2.4.2-* libwebp-dev=0.4.0-* libxml2-dev=2.9.1+dfsg1-* \
         libxslt1-dev=1.1.28-* libyaml-dev=0.1.4-* make=3.81-* patch=2.7.1-* xz-utils=5.1.1alpha+20120614-* \
         zlib1g-dev=1:1.2.8.dfsg-* tcl=8.6.0+* tk=8.6.0+* ca-certificates \
@@ -161,6 +161,11 @@ RUN set -ex \
 	&& rm -rf "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc SHASUMS256.txt \
 	&& ln -s /usr/local/bin/node /usr/local/bin/nodejs \
 	&& rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN set -ex \
+       && rm -rf /usr/bin/jq \
+       && wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -O /usr/bin/jq \
+       && chmod 755 /usr/bin/jq
 
 CMD ["python3"]
 
