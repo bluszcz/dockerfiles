@@ -10,6 +10,7 @@ RUN apt-get upgrade -y
 RUN apt-get install python3.6-dev \ 
 	wget -y \
 	sqlite3 \
+	locales \
 	python3-pip \
 	ssh \
 	libpq-dev \
