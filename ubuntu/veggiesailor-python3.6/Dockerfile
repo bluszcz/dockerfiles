@@ -5,7 +5,7 @@ RUN cat /etc/apt/sources.list
 RUN sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list
 RUN cat /etc/apt/sources.list
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
-RUN apt-get update
+RUN apt update
 RUN apt-get upgrade -y
 RUN apt-get install python3.6-dev \ 
 	wget -y \
@@ -16,6 +16,7 @@ RUN apt-get install python3.6-dev \
 	libpq-dev \
 	libgdal-dev
 RUN apt-get build-dep pillow -y
+RUN apt-get install sloccount -y
 RUN pip3 install virtualenv
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8  
